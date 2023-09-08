@@ -2,26 +2,30 @@ from turtle import Turtle, Screen
 import turtle
 import random
 
+colors_list = [(243, 243, 245), (244, 240, 232), (244, 237, 242), (236, 243, 240), (214, 154, 105), (49, 96, 139),
+               (163, 80, 45), (223, 209, 107), (17, 36, 59), (185, 163, 25), (120, 163, 202), (56, 30, 18),
+               (126, 68, 94), (210, 91, 69), (43, 128, 70), (193, 140, 160), (162, 20, 10), (125, 181, 156),
+               (58, 28, 40), (129, 26, 42), (19, 52, 43), (194, 91, 113), (48, 170, 98), (39, 62, 97), (27, 91, 52),
+               (235, 162, 187), (108, 118, 172), (225, 206, 2), (6, 88, 108), (227, 179, 170)
+               ]
+
 zaki = Turtle()
-zaki.pensize(1)
 zaki.speed(0)
-paths = [0, 90, 180, 270]
 turtle.colormode(255)
 
 
-def random_color():
-    r = random.randint(0, 255)
-    g = random.randint(0, 255)
-    b = random.randint(0, 255)
-    color_tuple = (r, g, b)
-    return color_tuple
-
-
 def colorful_circles():
-    for i in range(90):
-        zaki.pencolor(random_color())
-        zaki.circle(100)
-        zaki.right(4)
+    distance = 0
+    for j in range(10):
+        zaki.penup()
+        zaki.goto(-200, -200 + distance)
+        zaki.pendown()
+        distance += 50
+        for i in range(10):
+            zaki.dot(20, random.choice(colors_list))
+            zaki.penup()
+            zaki.forward(50)
+            zaki.pendown()
 
 
 colorful_circles()
@@ -29,93 +33,14 @@ colorful_circles()
 screen = Screen()
 screen.exitonclick()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# from turtle import Turtle, Screen
-# import turtle
-# import random
+# import colorgram
+# colors_list = []
+# colors = colorgram.extract("hirst_painting.jpg", 30)
+# for color in colors:
+#     r = color.rgb.r
+#     g = color.rgb.g
+#     b = color.rgb.b
+#     new_color = (r, g, b)
+#     colors_list.append(new_color)
 #
-# zaki = Turtle()
-# zaki.pensize(10)
-# zaki.speed(0)
-# paths = [0, 90, 180, 270]
-# turtle.colormode(255)
-#
-#
-# def random_color():
-#     r = random.randint(0, 255)
-#     g = random.randint(0, 255)
-#     b = random.randint(0, 255)
-#     color_tuple = (r, g, b)
-#     return color_tuple
-#
-#
-# def draw_random_walk():
-#     for i in range(40):
-#         zaki.pencolor(random_color())
-#         zaki.forward(30)
-#         zaki.setheading(random.choice(paths))
-#
-#
-# draw_random_walk()
-#
-# screen = Screen()
-# screen.exitonclick()
-#
-#
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# from turtle import Turtle, Screen
-# import random
-#
-# zaki = Turtle()
-# zaki.penup()
-# zaki.goto(-50, 100)
-# zaki.pendown()
-# num_sides = 3
-# colors = ["red", "blue", "yellow", "black", "green"]
-#
-#
-# def draw_shape():
-#     global num_sides
-#     zaki.pencolor(random.choice(colors))
-#     for i in range(num_sides):
-#         zaki.forward(100)
-#         zaki.right(360 / num_sides)
-#     num_sides += 1
-#
-#
-# while num_sides <= 10:
-#     draw_shape()
-#
-# screen = Screen()
-# screen.exitonclick()
+# print(colors_list)
